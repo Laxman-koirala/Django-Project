@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'User/base.html' %}
+{% load static %}
+{% block content %}
+ <div class="container">
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% for fm in form %}
+    {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+    {% endfor %}
+    <input  class="alert alert-success" type="submit" name="" value="Submit">
+
+  </form> <br>
+
+  {% if messages %}
+  <div class="alert alert-success">
+    {% for message in messages %}
+    <small {% if message.tags %} class="{{message.tags}}" {% endif %}>
+      <div class="alert alert-success"> {{message}} </div>
+      </small>
+      {% endfor %}
+      {% endif %}
+
+  </div>
+  {% endblock %}

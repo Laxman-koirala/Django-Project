@@ -1,0 +1,21 @@
+{% extends 'User/base.html' %}
+{% load static %}
+
+<div class="container">
+  {% block content %}
+
+  <div class="jumbotron">
+
+
+    <h1 class="display-4">People You May know</h1>
+    <hr class="my-4">
+    {% for profile in profiles %}
+    <br>
+    <p>
+      <h1>{{profile}}</h1>
+      <a  href="{% url 'profile-detail' profile.pk %}" class="btn btn-primary btn-lg" href="#" role="button">see profile</a>
+    </p>
+    {% endfor %}
+  </div>
+  {% endblock %}
+</div>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'User/base.html' %}
+{% load static %}
+{% block content %}
+{% for trends in posts %}
+<div class="container" style="background-color:#000000;">
+
+  <div class="col-lg-10">
+    <a href='#' style="font-size:20px;color:red">#{{trends.Author.user.username}}</a>
+    <div class="trend-entry d-flex style=" background-color:#F0FFFF">
+      <div class="trend-contents">
+        <h2><a href="#" style="font-size:20px;color:#FF69B4">{{trends.title}}</a></h2>
+        <a href="post-single.html"><img src="{{trends.thumbnail.url}}" alt="Image" class="img-fluid"></a>
+        <a href='#' style="font-size:20px;color:#DCDCDC;">{{trends.overview}}</a>
+
+        <div class="post-meta">
+          <span class="d-block">
+            {% for cat in trends.categories.all %}
+            <a href="#" style="font-size:20px;color:#FF69B4">{{cat.title}}</a>
+            {% endfor %}
+          </span>
+          <span class="date-read" style="font-size:20px;color:red">{{trends.time_upload|timesince}} ago
+          </span>
+
+          <span style="font-size:20px;color:red;position:absolute;
+  bottom:0;
+  right:0;">{{trends.view}}
+            <i class="fa fa-eye" ;></i>
+          </span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+
+
+{% endblock %}
