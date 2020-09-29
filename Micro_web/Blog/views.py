@@ -2,7 +2,7 @@
 #
 
 #
-#class profile(CreateView):
+#class profile(UpdateView):
 #    model =  Profile
 #    fields = ['bio', 'photo']
 #    template_name = 'Blog/myProfile.html'
